@@ -147,8 +147,8 @@
         overlay.querySelectorAll('.gemini-ocr-text-box').forEach(box => {
             const text = box.textContent || '';
             if (!text) return;
-            const availableWidth = box.clientWidth - 4;
-            const availableHeight = box.clientHeight - 4;
+            const availableWidth = box.clientWidth + 5; // Increases bounding box size to match original content closer.
+            const availableHeight = box.clientHeight + 5; // Increases bounding box size to match original content closer.
             let isVertical = false;
             let finalFontSize = 0;
             if (settings.textOrientation === 'forceVertical') { isVertical = true; finalFontSize = findBestFitFontSize(text, availableWidth, availableHeight, true); }
